@@ -1,0 +1,82 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+  首页
+{% endblock %}
+
+
+{% block extcss %}
+    <link rel="stylesheet" href="{% static 'home/css/swiper.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
+
+{% block extjs %}
+    <script src="{% static 'home/js/swiper.min.js' %}"></script>
+
+    <script src="{% static 'home/js/home.js' %}"></script>
+
+{% endblock %}
+ <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    </style>
+
+{% block contert %}
+{#    <div class="home">#}
+        <div class="swiper-container" id="'topSwiper">
+            <div class="swiper-wrapper">
+                {% for wheel in wheels %}
+                <div class="swiper-slide">
+                    <img src="{{ wheel.img }}" alt="{{ wheel.name }}">
+                </div>
+
+            {% endfor %}
+            </div>
+        <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+{#    </div>#}
+
+
+
+{% endblock %}
